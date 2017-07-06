@@ -1,0 +1,72 @@
+<div class="container">
+	<div class="row"> 
+<h2 class="page-header h2  col-lg-8 col-md-8 col-xm-8 col-sm-8 col-lg-push-2 col-md-push-2 col-xm-push-2 col-sm-push-2">{{thisCategory.Category}}</h2>
+</div>
+			
+			<section>
+	<section class="row">
+				<section class="col-sm-3 col-md-3 col-xm-3 col-lg-3 col-lg-push-2 col-md-push-2 col-xm-push-2 col-sm-push-2">
+					<select class="form-control" ng-model="str">
+						<option value="Title">标题</option>
+						<option value="Author">作者</option>
+						<option value="Price">价格</option>
+						<option value="PubDate">出版日期</option>
+					</select>
+				</section>
+				<section class="col-sm-3 col-md-3 col-xm-3 col-lg-3 col-lg-offset-4 col-md-offset-4 col-sm-offset-4 col-xm-offset-4">
+				<input type="text"  class="form-control" ng-model="str2" />
+				<i>请输入书名</i>
+				</section>
+			</section><br />
+			<div class="row">
+				<div class="col-lg-8 col-md-5 col-xm-8 col-sm-8 col-lg-push-2 col-md-push-2 col-xm-push-2 col-sm-push-2 panel panel-default" ng-repeat="book in arr1 |orderBy:str |filter:str2 |limitTo:x:y" >
+					  <div class="panel-body">
+					    <div class="col-sm-4 col-md-4  col-xm-4 col-lg-4">
+					    	<a href="#abc/{{book.Id}}" class="thumbnail">
+					    	<img src="letters/{{book.Id}}.jpg" alt="..." class="img-rounded">
+					    	</a>
+					    </div>
+					    <div class="col-sm-4  col-md-4 col-xm-4 col-lg-4">
+					    	<h2>{{book.Title}}</h2>
+					    	<h4 class="text-danger">{{book.Author}}</h4>
+					    	<h6 class="text-info">{{book.Price |currency:"￥"}}</h6>
+					    	<h6 class="text-info">{{book.PubDate |date:"yyyy年MM月d  d日"}}</h6>
+					    </div>
+					    <div class="col-xm-3 col-lg-3 col-md-3 col-sm-1">
+					    	<br />
+					    	<br />
+					    	<br />
+					    	<p class="text-right {{book.status |statusColor}}">{{book.status |statusText}}</p>
+					    	<br /><br />
+					    	<a class="btn btn-primary pull-right " href="#/home">
+					    		<span class="glyphicon glyphicon-shopping-cart"></span>
+					    		<input type="text" name="" id="" hidden="hidden" value=""  />添加到我的书库</a>
+					    </div>
+					  </div>
+					</div>
+			</div>
+			
+			
+			
+		</section>
+				<nav aria-label="Page navigation"  class="row  text-center" >
+  <ul class="pagination"  class="col-lg-5 col-md-5 col-xm-5 col-sm-5 col-lg-push-5 col-md-push-5 col-xm-push-5 col-sm-push-5">
+    <li  >
+      <a href="javascript:void(0)" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li ng-click="y=x*0"><a  href="javascript:void(0)">1</a></li>
+    <li  ng-click="y=x*1"><a href="javascript:void(0)">2</a></li>
+    <li  ng-click="y=x*2"><a href="javascript:void(0)">3</a></li>
+    <li  ng-click="y=x*3"><a href="javascript:void(0)">4</a></li>
+    <li  ng-click="y=x*4"><a href="javascript:void(0)">5</a></li>
+    <li  ng-click="y=x*5"><a href="javascript:void(0)">6</a></li>
+   
+    <li>
+      <a href="javascript:void(0)" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

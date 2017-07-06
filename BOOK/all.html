@@ -1,0 +1,73 @@
+	<section class="container">
+			<br /><br />
+		<div class="row">
+		<form action="" class="form-inline col-lg-10 col-lg-push-2" >
+			<label for="">输入关键字查询：<input type="text" class="form-control" placeholder="输入查询条件" ng-model="str"/></label>
+				<br>
+					<div class="row">
+			<table class="table table-striped ">
+				<tr>
+					<th  ng-click="book='Id';flag=!flag">ID</th>
+					<th  ng-click="book='Title';flag=!flag">Title</th>
+					<th ng-click="book='Author';flag=!flag">Author</th>
+					<th ng-click="book='PubDate';flag=!flag">PubDate</th>
+					<th ng-click="book='Price';flag=!flag">Price</th>
+					<th ng-click="book='Category';flag=!flag">Category</th>
+					<th>删除</th>
+				</tr>
+				<tr ng-repeat="book in books | orderBy:book:flag | filter:str |limitTo:x:y">
+					<td>{{book.Id}}</td>
+					<td >
+ 					<span  data-trigger="hover"  data-container="body" data-toggle="popover" data-placement="right" data-html="true" data-content="{{'<span style=color:red>'+book.Title+'</span>'+'<br>'+'<span style=color:#ff6700>'+book.Author+'</span>'+'<br>'+'<span>'+'￥'+book.Price +'</span>'}}">{{book.Title | lowercase}}</span>
+					</td>
+					<td>{{book.Author|uppercase}}</td>
+					<td>{{book.PubDate |date:"yyyy年MM月dd日"}}</td>
+					<td>{{book.Price | currency:"￥"}}</td>
+					<td>{{book.Category}}</td>
+					<td><button type="button" class="btn btn-primary"  ng-click="hideFun($event,book.Title)">删除</button></td>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+</div>
+				</tr>
+			</table>
+			</form>
+			</div>
+		</div>
+		<nav aria-label="Page navigation"  class="row  text-center" >
+  <ul class="pagination"  class="col-lg-5 col-lg-push-5">
+    <li  >
+      <a href="javascript:void(0)" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li ng-click="changePage($index)" ng-repeat="p in getArr(books.length/x) track by $index"><a href="javascript:void(0)">{{$index+1}}</a></li>
+    <!--<li  ng-click="y=x*1"><a href="javascript:void(0)">2</a></li>
+    <li  ng-click="y=x*2"><a href="javascript:void(0)">3</a></li>
+    <li  ng-click="y=x*3"><a href="javascript:void(0)">4</a></li>
+    <li  ng-click="y=x*4"><a href="javascript:void(0)">5</a></li>
+    <li  ng-click="y=x*5"><a href="javascript:void(0)">6</a></li>
+    <li  ng-click="y=x*6"><a href="javascript:void(0)">7</a></li>
+    <li  ng-click="y=x*7"><a href="javascript:void(0)">8</a></li>
+    <li  ng-click="y=x*8"><a href="javascript:void(0)">9</a></li>
+    <li  ng-click="y=x*9"><a href="javascript:void(0)">10</a></li>-->
+    <li>
+      <a href="javascript:void(0)" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+		</section>
+		
+		
+	<script type="text/javascript">
+			$(function () {
+				setTimeout(function(){
+					$('[data-toggle="popover"]').popover()
+				},500)
+			})
+			
+		
+		</script>		
+

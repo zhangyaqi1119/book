@@ -1,0 +1,37 @@
+<div class="row login ">
+	<div class="col-lg-3 col-md-3 col-xs-3 col-sm-3 col-lg-push-8 col-md-push-8 col-sm-push-8 col-xs-push-8 form-inline loginDiv">
+	<p class="text-center text-primary lead h3">个人图书管理系统</p>
+	<form action="">
+			<label for="">用户名：<input type="text"  id="username" class="form-control" placeholder="请输入用户名" /></label><br /><br />
+		<label>&nbsp;&nbsp;&nbsp;密码：<input type="password" id="password" value="" class="form-control" placeholder="请输入密码" /></label><br /><br />
+		
+	<a id="login" class="btn btn-info center-block ">点击进入系统</a>
+	</form>
+	</div>
+	</div>
+<script type="text/javascript">
+	   var user=document.getElementById("username");
+	var pas=document.getElementById("password");
+	var login=document.querySelector("#login");
+	
+	var arr=document.cookie.split(";");
+	var lo=document.querySelector("#loginContent")
+			var arr1=arr[0].split("=");
+			var arr2=arr[1].split("=");
+				//给登录的按钮添加事件，获取到用户名和密码，要和cookie有效的用户名和密码
+				//进行比较  如果一致，点击登录调到首页
+				login.addEventListener("click",function(){
+					if(user.value==arr1[1] &&　pas.value==arr2[1]){
+						login.setAttribute("href","#/main")
+						console.log($("#loginContent1").html())
+						$("#loginContent1").html("你好！欢迎&nbsp;<img style='width: 40px; height: 40px;border-radius: 20px;' src='letters//"+value1+"'>"+user.value+"登录,<span>退出</span>")
+//					     $("#touxiang").html("你好！欢迎&nbsp;<img style='width: 40px; height: 40px;border-radius: 20px;' src='letters//"+value1+"'>"+user.value+"登录,<span>退出</span>")
+					}else{
+						alert("用户名和密码错误");
+					}
+//					console.log($("#loginContent1 span"))
+					$("#loginContent1 span").on("click",function(){
+						$("#loginContent1").html("登录")
+					})
+				})
+</script>

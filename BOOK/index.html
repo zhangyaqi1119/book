@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initail-scale=1" />
+		<meta name="Description" content="图书管理"/>
+		<meta name="Keywords" content="图书"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chorme=1" />
+		<link rel="icon" href="img/icon.jpg" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/component.css"/>
+		<title>图书管理</title>
+		<!--[if it IE9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+			<![endif]-->
+	</head>
+	<body>
+		<div ng-include="'header.html'"></div>
+		
+        <div>
+        <div class="side" style="position: absolute;top: 40px;float: left; left: -30px;">
+					<nav id="nav" class="dr-menu col-lg-1 col-md-1 col-sm-1 col-xs-1">
+						<div class="dr-trigger"><span class="dr-icon dr-icon-menu "></span><a class="dr-label">Account</a></div>
+						<ul>
+							<li><a class="dr-icon dr-icon-user text-danger" href="#/home">个人主页</a></li>
+							<li><a class="dr-icon dr-icon-camera" href="#/main">图书分类</a></li>
+							<li><a class="dr-icon dr-icon-heart" href="#/all">所有图书</a></li>
+							<li><a class="dr-icon dr-icon-download" href="#/login">登录</a></li>
+							<li><a class="dr-icon dr-icon-settings" href="#/register">注册</a></li>
+							<li><a id="tui" class="dr-icon dr-icon-switch" href="#/login">退出</a></li>
+						</ul>
+					</nav>
+				</div>
+        </div>
+		<div ng-view></div>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/angular_1.5.8.min.js"></script>
+		<script src="js/angular-route.min.js"></script>
+	<script src="js/angulaRroute.js"></script>
+	<script src="js/angularCtr.js" ></script>
+	<script src="js/angularApp.js"></script>
+	<script src="js/bookfilter.js"></script>
+	<script src="js/bootbox.min.js"></script>
+	
+	<script>
+		var YTMenu = (function() {
+	function init() {
+		[].slice.call( document.querySelectorAll( '.dr-menu' ) ).forEach( function( el, i ) {
+			var trigger = el.querySelector( 'div.dr-trigger' ),
+				icon = trigger.querySelector( 'span.dr-icon-menu' ),
+				open = false;
+			trigger.addEventListener( 'click', function( event ) {
+				if( !open ) {
+					el.className += ' dr-menu-open';
+					open = true;
+				}
+			}, false );
+			icon.addEventListener( 'click', function( event ) {
+				if( open ) {
+					event.stopPropagation();
+					open = false;
+					el.className = el.className.replace(/\bdr-menu-open\b/,'');
+					return false;
+				}
+			}, false );
+
+		} );
+
+	}
+
+	init();
+})();
+					$("#tui").on("click",function(){
+						$("#loginContent1").html("登录")
+					})
+				
+
+	</script>
+	</body>
+</html>

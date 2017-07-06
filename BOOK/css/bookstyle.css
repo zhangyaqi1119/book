@@ -1,0 +1,13 @@
+#label{
+	position: absolute;
+	top: 7px;
+	left: 30px;
+	transition: 0.3s all;
+}
+
+.active{
+	position: absolute;
+	right: 0px;
+	color: green;
+	font-size: 12px;
+}

@@ -1,0 +1,24 @@
+@media (min-width: 900px) and (max-width:1200px) {
+	body{background: red;}
+}
+@media (min-width: 500px) and (max-width:900px) {
+	body{background: green;}
+}
+
+section,
+header,
+footer,
+aside,
+article,
+hgroup,
+div{
+	border: 1px dotted;
+}
+
+div{
+	transform: scaleX(45deg);
+	-webkit-transform: scaleX(45deg);
+	    -ms-transform: scaleX(45deg);
+       -moz-transform: scaleX(45deg);
+	     -o-transform: scaleX(45deg);
+}

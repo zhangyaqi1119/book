@@ -1,0 +1,80 @@
+<section class="row">
+	<div class=" col-lg-9 col-md-9 col-sm-9 col-xm-9 col-lg-push-2 col-md-push-2 col-xm-push-2 col-sm-push-2">
+		<div class="row">
+	<div class="page-header h2 col-lg-9 col-md-9 col-xm-9 col-sm-9 col-lg-push-1 col-md-push-1 col-xs-push-1 col-sm-push-1">{{thisbook.Title}}</div>
+	</div>
+	<br />
+		<div class="col-lg-5 col-xm-5 col-xs-5 col-sm-5 col-lg-push-1 col-md-push-1 col-xs-push-1 col-sm-push-1">
+    <a href="">
+      <img src="letters/{{thisbook.Id}}.jpg" alt="...">
+    </a>
+</div>
+	<div  class="col-lg-7 col-md-7 col-xm-7 col-xs-7">
+<div class="panel panel-default">
+  <div class="panel-body">
+  <p class="text-center">标题：{{thisbook.Title}}</p>
+  <p class="text-center">作者：{{thisbook.Author}}</p>
+  <p class="text-center ">价格：{{thisbook.Price |currency:"￥"}}</p>
+  <p class="text-center">发行日期：{{thisbook.PubDate}}</p>
+  <div class="row">
+  	<div  class="col-lg-3 col-md-3  col-xm-3 col-xs-3" id="im">
+    <a href="" class="thumbnail">
+      <img src="letters/{{thisbook.images[0]}}.jpg" alt="...">
+    </a>
+</div>
+  	<div  class="col-lg-3 col-md-3 col-xm-3 col-xs-3" id="im">
+    <a href="" class="thumbnail">
+      <img src="letters/{{thisbook.images[1]}}.jpg" alt="...">
+    </a>
+</div>
+  	<div  class="col-lg-3 col-md-3 col-xm-3 col-xs-3" id="im">
+    <a href="" class="thumbnail">
+      <img src="letters/{{thisbook.images[2]}}.jpg" alt="...">
+    </a>
+</div>
+  	<div  class="col-lg-3 col-md-3 col-xm-3 col-xs-3" id="im">
+    <a href="" class="thumbnail">
+      <img src="letters/{{thisbook.images[3]}}.jpg" alt="...">
+    </a>
+</div>
+</div>
+  </div>
+</div>
+</div>
+</div>
+</section>
+<div class="row ">
+	<div class="col-lg-9 col-md-9 col-sm-9 col-xm-9 col-lg-push-2 col-md-push-2 col-xm-push-2 col-xs-push-2 col-sm-push-2">
+	  <!-- Nav tabs -->
+  <ul class="nav nav-tabs navs" role="tablist">
+    <li role="presentation" class="active"><a href="javascript:void(0)" aria-controls="home" role="tab" data-toggle="tab">编辑推荐</a></li>
+    <li role="presentation"><a href="javascript:void(0)" aria-controls="profile" role="tab" data-toggle="tab">内容简介</a></li>
+    <li role="presentation"><a href="javascript:void(0)" aria-controls="messages" role="tab" data-toggle="tab">作者简介</a></li>
+    <li role="presentation"><a href="javascript:void(0)" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content cont">
+    <div role="tabpanel" class="tab-pane active" id="home"><p class="text-danger">{{thisbook.Pull}}</p></div>
+    <div role="tabpanel" class="tab-pane" id="profile"><p class="text-danger">{{thisbook.Content}}</p></div>
+    <div role="tabpanel" class="tab-pane" id="messages"><p class="text-primary">{{thisbook.author}}</p></div>
+    <div role="tabpanel" class="tab-pane" id="settings">第四块</div>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+	var navs=document.querySelectorAll(".navs li");
+	var cont=document.querySelectorAll(".cont div");
+	for (let i=0;i<navs.length;i++) {
+		navs[i].onclick=function(){
+			for (var j=0;j<navs.length;j++) {
+				navs[j].className=""
+			cont[j].className=""
+			}
+			this.className="active"
+			cont[i].className="active"
+		}
+	}
+	
+	
+</script>

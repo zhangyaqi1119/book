@@ -1,0 +1,41 @@
+angular.module("routeApp",["ngRoute"])
+ .config(["$routeProvider",function($routeProvider){
+	$routeProvider
+	.when("/",{
+		templateUrl:"login.html",
+		controller:"login"
+	})
+	.when("/register",{
+		templateUrl:"register.html",
+		controller:"register"
+	})
+	.when("/login",{
+		templateUrl:"login.html",
+		controller:"login"
+	})
+	.when("/home",{
+		templateUrl:"home.html",
+		controller:"home"
+	})
+	.when("/main",{
+		templateUrl:"main.html",
+		controller:"main"
+	})
+	.when("/all",{
+		templateUrl:"all.html",
+		controller:"main"
+	})
+	.when("/:Category",{
+		templateUrl:"detail.html",
+		controller:"detail"
+	})
+	.when("/abc/:Id",{
+		templateUrl:"details.html",
+		controller:"detail"
+	})
+
+	.otherwise("/",{
+		redirecTo:"/"
+	}
+	)
+}])
